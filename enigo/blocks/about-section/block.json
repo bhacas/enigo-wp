@@ -1,0 +1,50 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/about-section",
+	"version": "0.1.0",
+	"title": "About Section",
+	"category": "widgets",
+	"icon": "groups",
+	"description": "A section with a main title, description, mission, and a list of technologies.",
+	"attributes": {
+		"title": {
+			"type": "string",
+			"source": "html",
+			"selector": "h2"
+		},
+		"description": {
+			"type": "string",
+			"source": "html",
+			"selector": "p.text-lg"
+		},
+		"missionTitle": {
+			"type": "string",
+			"source": "html",
+			"selector": "h3.mission-title"
+		},
+		"missionDescription": {
+			"type": "string",
+			"source": "html",
+			"selector": "p.mission-description"
+		},
+		"techTitle": {
+			"type": "string",
+			"source": "html",
+			"selector": "h3.tech-title"
+		},
+		"technologies": {
+			"type": "array",
+			"default": [
+				"HTML5", "CSS3", "JavaScript", "React", "Vue", "Laravel", "PHP", "Node.js", "WordPress", "WooCommerce", "Figma", "Git"
+			]
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "about-section",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css"
+}

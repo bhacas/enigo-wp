@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/portfolio-section",
+	"version": "0.1.0",
+	"title": "Portfolio Section",
+	"category": "widgets",
+	"icon": "portfolio",
+	"description": "A section to display the latest portfolio projects.",
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Featured projects:"
+		},
+		"description": {
+			"type": "string",
+			"default": "See how we helped our clients grow – from simple business websites to advanced web systems."
+		},
+		"numberOfPosts": {
+			"type": "number",
+			"default": 3
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "View portfolio"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "#"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "portfolio-section",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css"
+}
