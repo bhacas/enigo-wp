@@ -14,6 +14,7 @@ services:
     image: wordpress:latest
     volumes:
       - ./wp-content:/var/www/html/wp-content
+      - ./:/var/www/html/wp-content/themes/enigo
     ports:
       - "8000:80"
     restart: always
