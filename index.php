@@ -1,29 +1,14 @@
 <?php get_header();  ?>
 
-    <div id="primary" class="content-area">
-    <main id="main" class="site-main">
+    <div class="w-full bg-gray-50 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+                404</h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Nie znaleziono strony, której szukasz. Możliwe, że została usunięta lub przeniesiona na inny adres.
+            </p>
+        </div>
+    </div>
 
-        <?php
-        // To jest Twoja pętla, która już działa poprawnie
-        if ( have_posts() ) :
-            while ( have_posts() ) :
-                the_post();
-                ?>
-                <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                    <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                    <div>
-                        <?php the_content(); ?>
-                    </div>
-                </article>
-            <?php
-
-            endwhile;
-        else :
-            // Co wyświetlić, jeśli nie ma żadnych postów
-            echo '<p>Nie znaleziono żadnych wpisów.</p>';
-        endif;
-        ?>
-
-    </main></div>
 
 <?php get_footer(); ?>
