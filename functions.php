@@ -4,36 +4,36 @@
  * Dołącza skrypty i style do motywu.
  */
 function enigo_enqueue_assets() {
-    // Dołączanie stylów Tailwind
-    wp_enqueue_style('tailwind-css', get_template_directory_uri() . '/dist/output.css');
+    $dev_css_path = get_template_directory() . '/dist/output.css';
+    $dev_css_uri = get_template_directory_uri() . '/dist/output.css';
+    $prod_css_uri = get_template_directory_uri() . '/assets/css/tailwind.css';
 
-    // Dołączanie skryptu JavaScript do obsługi menu mobilnego
+    if ( file_exists( $dev_css_path ) ) {
+        wp_enqueue_style( 'tailwind-dev-css', $dev_css_uri );
+    } else {
+        wp_enqueue_style( 'tailwind-prod-css', $prod_css_uri );
+    }
+
     wp_enqueue_script(
         'enigo-main-script',
         get_template_directory_uri() . '/assets/js/main.js',
         array(),
         '1.0.0',
-        true // Ładuj skrypt w stopce
+        true
     );
 }
 add_action( 'wp_enqueue_scripts', 'enigo_enqueue_assets' );
 
 
-/**
- * Rejestruje lokalizacje menu i włącza wsparcie dla funkcji motywu.
- */
 function enigo_theme_setup() {
-    // Włącza wsparcie dla obrazków wyróżniających
     add_theme_support( 'post-thumbnails' );
 
-    // Rejestruje lokalizację menu o nazwie 'primary-menu'
     register_nav_menus( array(
         'primary-menu' => esc_html__( 'Primary Menu', 'enigo' ),
         'footer-menu'  => esc_html__( 'Footer Menu', 'enigo' ),
         'secondary-footer-menu'  => esc_html__( 'Secondary footer Menu', 'enigo' ),
     ) );
 
-    // Włącza wsparcie dla własnego logo
     add_theme_support( 'custom-logo', array(
         'height'      => 40,
         'width'       => 'auto',
@@ -44,9 +44,6 @@ function enigo_theme_setup() {
 add_action( 'after_setup_theme', 'enigo_theme_setup' );
 
 
-/**
- * Rejestruje Własny Rodzaj Wpisu (Custom Post Type) dla Portfolio.
- */
 function create_portfolio_post_type() {
     $labels = array(
         'name'                  => _x( 'Projekty', 'Post type general name', 'textdomain' ),
@@ -81,10 +78,6 @@ function create_portfolio_post_type() {
 }
 add_action( 'init', 'create_portfolio_post_type' );
 
-
-/**
- * Funkcja renderująca blok Portfolio po stronie serwera (PHP).
- */
 function render_portfolio_section_block( $attributes ) {
     $args = array(
         'post_type'      => 'portfolio',
@@ -141,10 +134,6 @@ function render_portfolio_section_block( $attributes ) {
     return ob_get_clean();
 }
 
-
-/**
- * Rejestruje niestandardowe bloki Gutenberga.
- */
 function moj_motyw_rejestruj_bloki() {
     register_block_type( __DIR__ . '/blocks/hero-section' );
     register_block_type( __DIR__ . '/blocks/features-section' );
@@ -157,11 +146,6 @@ function moj_motyw_rejestruj_bloki() {
 }
 add_action( 'init', 'moj_motyw_rejestruj_bloki' );
 
-
-/**
- * Custom Walker class for the desktop menu.
- * Outputs only <a> tags with Tailwind classes.
- */
 class Tailwind_Nav_Walker extends Walker_Nav_Menu {
     function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
         $atts = [
@@ -186,11 +170,6 @@ class Tailwind_Nav_Walker extends Walker_Nav_Menu {
     }
 }
 
-
-/**
- * Custom Walker class for the mobile menu.
- * Outputs styled <a> tags that behave like block elements.
- */
 class Tailwind_Nav_Walker_Mobile extends Walker_Nav_Menu {
     function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
         $atts = [
@@ -211,7 +190,6 @@ class Tailwind_Nav_Walker_Mobile extends Walker_Nav_Menu {
     }
 
     function end_el( &$output, $item, $depth = 0, $args = null ) {
-        // Do not output a closing tag
     }
 }
 

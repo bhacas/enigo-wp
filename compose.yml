@@ -13,8 +13,7 @@ services:
   wordpress:
     image: wordpress:latest
     volumes:
-      - ./enigo:/var/www/html/wp-content/themes/enigo
-      - ./uploads:/var/www/html/wp-content/uploads
+      - ./wp-content:/var/www/html/wp-content
     ports:
       - "8000:80"
     restart: always
