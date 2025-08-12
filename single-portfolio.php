@@ -79,7 +79,7 @@ get_header(); // Wczytuje nagłówek (header.php)
                     <?php endif; ?>
                 </div>
                 <div>
-                    <h2 class="text-2xl font-bold mb-4 text-gray-900">Project Overview</h2>
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900">Przegląd projektu</h2>
                     <div class="text-gray-700 mb-6 prose prose-lg max-w-none">
                         <?php
                         // Główna treść wpisu jest teraz używana jako "Project Overview"
