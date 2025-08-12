@@ -166,7 +166,7 @@ get_header(); // Wczytuje nagłówek (header.php)
 
             <div class="text-center py-8">
                 <h2 class="text-2xl font-bold mb-6 text-gray-900">Gotowy rozpocząć swój projekt?</h2>
-                <a href="<?php echo esc_url(home_url('/kontakt')); ?>">
+                <a href="<?php echo esc_url(home_url('/contact')); ?>">
                     <button class="px-6 py-3 rounded-lg font-medium transition-all duration-200 text-sm md:text-base bg-blue-600 text-white hover:bg-blue-700 ">
                         Skontaktuj się z nami
                     </button>

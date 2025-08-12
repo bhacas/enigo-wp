@@ -73,7 +73,6 @@ export default function Edit({ attributes, setAttributes }) {
 							))}
 						</div>
 						<div className="bg-white p-8 rounded-xl shadow-sm">
-							<h3 className="text-xl font-semibold mb-6 text-gray-900">Wyślij nam wiadomość</h3>
 							<p className="text-gray-500">[Form shortcode will be rendered here on the live site]</p>
 							<p className="text-gray-500 mt-2"><strong>Shortcode:</strong> {formShortcode}</p>
 						</div>
