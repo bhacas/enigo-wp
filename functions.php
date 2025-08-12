@@ -21,6 +21,13 @@ function enigo_enqueue_assets() {
         '1.0.0',
         true
     );
+
+    wp_enqueue_style(
+        'enigo-google-fonts',
+        'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap',
+        array(),
+        null
+    );
 }
 add_action( 'wp_enqueue_scripts', 'enigo_enqueue_assets' );
 
