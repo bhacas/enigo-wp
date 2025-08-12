@@ -27,6 +27,7 @@ add_action( 'wp_enqueue_scripts', 'enigo_enqueue_assets' );
 
 function enigo_theme_setup() {
     add_theme_support( 'post-thumbnails' );
+    add_theme_support( 'title-tag' );
 
     register_nav_menus( array(
         'primary-menu' => esc_html__( 'Primary Menu', 'enigo' ),
