@@ -1,8 +1,5 @@
 <?php
 
-/**
- * Dołącza skrypty i style do motywu.
- */
 function enigo_enqueue_assets() {
     $dev_css_path = get_template_directory() . '/dist/output.css';
     $dev_css_uri = get_template_directory_uri() . '/dist/output.css';

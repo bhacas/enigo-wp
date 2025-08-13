@@ -4,12 +4,11 @@
  * Plik: page.php
  */
 
-get_header(); // Wczytuje nagłówek (header.php)
+get_header();
 ?>
 
 
 <?php
-// Pętla WordPressa, która wczytuje dane bieżącej strony
 while (have_posts()) :
 the_post();
 ?>
@@ -25,9 +24,9 @@ the_post();
     </section>
 
     <?php
-    endwhile; // Koniec pętli.
+    endwhile;
     ?>
 
     <?php
-    get_footer(); // Wczytuje stopkę (footer.php)
+    get_footer();
     ?>

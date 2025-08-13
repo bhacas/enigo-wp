@@ -4,16 +4,14 @@
  * Plik: single-portfolio.php
  */
 
-get_header(); // Wczytuje nagłówek (header.php)
+get_header();
 ?>
 
 <main class="flex-grow">
     <?php
-    // Pętla WordPressa, która wczytuje dane bieżącego projektu
     while (have_posts()) :
         the_post();
 
-        // Pobieramy dane z Pól Dodatkowych (Custom Fields).
         $client_name = get_post_meta(get_the_ID(), 'client', true);
         $project_year = get_post_meta(get_the_ID(), 'year', true);
         $project_category = get_post_meta(get_the_ID(), 'category', true);
@@ -174,9 +172,9 @@ get_header(); // Wczytuje nagłówek (header.php)
             </div>
         </div>
 
-    <?php endwhile; // Koniec pętli. ?>
+    <?php endwhile; ?>
 </main>
 
 <?php
-get_footer(); // Wczytuje stopkę (footer.php)
+get_footer();
 ?>
