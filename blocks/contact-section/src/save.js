@@ -9,8 +9,7 @@ export default function save({ attributes }) {
 	const { title, description, contactItems = [], formShortcode } = attributes;
 
 	return (
-		<section {...blockProps}>
-			<div className="container mx-auto px-4">
+			<div>
 				<div className="text-center mb-16">
 					<RichText.Content tagName="h2" className="text-3xl md:text-4xl font-bold mt-2 mb-4 text-gray-900" value={title} />
 					<RichText.Content tagName="p" className="text-lg text-gray-600 max-w-2xl mx-auto" value={description} />
@@ -35,6 +34,5 @@ export default function save({ attributes }) {
 					</div>
 				</div>
 			</div>
-		</section>
 	);
 }
